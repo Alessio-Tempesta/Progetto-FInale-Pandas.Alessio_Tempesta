@@ -31,6 +31,10 @@
 # Valutare la performance del modello attraverso metriche come l'accuratezza e l'AUC (Area Under Curve).
 
 
+# Punto 1 per il caricamento iniizale dei dati
+# Esplorazione iniziale per capire la struttura dei dati e per identificare i problemi iniziali come i valori o delle anomalie Tempo stimato : 20-25 min
+
+
 import pandas as pd
 
 # classe caricamento dati
@@ -63,3 +67,7 @@ class CaricatoreDati:
     def ottieni_dati(self):
         return self.dati
         
+        
+caricatore = CaricatoreDati('file.csv')
+dati = caricatore.carica_dati()
+caricatore.esplora_dati()

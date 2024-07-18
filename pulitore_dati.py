@@ -1,5 +1,7 @@
-import pandas as pd
+# Punto 2 Pulizia dei Dati:
+# -gestione dei valori mancanti : dipende dalla quantità di dati mancanti e dalla decisione di rimuovere o imputare valori ,correzione delle anomalie: Dipedne dalla natura delle anomalie  tempo stimato in totale = 45 minuti credo  
 
+import pandas as pd
 
 class PulitoreDati:
     def __init__(self, dati):
