@@ -31,13 +31,18 @@
 # Valutare la performance del modello attraverso metriche come l'accuratezza e l'AUC (Area Under Curve).
 
 
-# Struttura Generale Approsimativa:
+# Struttura Generale Approsimativa: Progetto: Analisi e Predizione del Churn Rate in una Compagnia di Telecomunicazioni
+
+Obiettivo:
+Realizzare un'analisi esplorativa e costruire un modello predittivo per prevedere il churn rate dei clienti di una compagnia di telecomunicazioni utilizzando tecniche di data science.
+
+componenenti principali:
 
 # Punto 1 per il caricamento iniizale dei dati
 # Esplorazione iniziale per capire la struttura dei dati e per identificare i problemi iniziali come i valori o delle anomalie Tempo stimato : 20-25 min
 
 # Punto 2 Pulizia dei Dati:
-# -gestione dei valori mancanti : dipende dalla quantità di dati mancanti e dalla decisione di rimuovere o imputare valori , correzione delle anomalie: Dipedne dalla natura delle anomalie  tempo stimato in totale = 45 minuti credo  
+# -gestione dei valori mancanti : dipende dalla quantità di dati mancanti e dalla decisione di rimuovere o imputare valori ,correzione delle anomalie: Dipedne dalla natura delle anomalie  tempo stimato in totale = 45 minuti credo  
 
 #Punto 3 Analisi esplorativa dei Dati
 # Creazione di nuove colonne e analisi di base:  Dipende dalla complessità delle nuove colonne da creare e delle relazioni da esplorare. tempo stimato 40-50 minuti.

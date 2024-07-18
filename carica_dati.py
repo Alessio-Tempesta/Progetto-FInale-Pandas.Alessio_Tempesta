@@ -31,22 +31,34 @@
 # Valutare la performance del modello attraverso metriche come l'accuratezza e l'AUC (Area Under Curve).
 
 
-# Struttura Generale Approsimativa:
+import pandas as pd
 
-# Punto 1 per il caricamento iniizale dei dati
-# Esplorazione iniziale per capire la struttura dei dati e per identificare i problemi iniziali come i valori o delle anomalie Tempo stimato : 20-25 min
+# classe caricamento dati
+class CaricatoreDati:
+    def __init__(self, percorso_file ='file.csv'):
+        self.percorso_file = percorso_file
+        self.dati = None
+        
+    def carica_dati(self):
+        # carichaimo i dati dal file csv
+        try:
+            self.dati = pd.read_csv(self.percorso_file)
+            print(f"Dati sono stati caricati con successo da {self.percorso_file}")
+            return self.dati
+        except FileNotFoundError:
+            print(f"Errore il file {self.percorso_file} non è stato trovato")
+        
+    #esplora i dati stampando info di base 
+    def esplora_dati(self):
+        if self.dati is not None:
+            print("\nInformazioni sui dati:", self.dati.info())
+            print("\n Statistiche descirttive: ")
+            print(self.dati.describe())
+            print("\nConteggio dei valori nella colonna 'Churn':")
+            print(self.dati['Churn'].value_counts())
+        else:
+            print("I dati non sono stati ancora caricati.")
 
-# Punto 2 Pulizia dei Dati:
-# -gestione dei valori mancanti : dipende dalla quantità di dati mancanti e dalla decisione di rimuovere o imputare valori , correzione delle anomalie: Dipedne dalla natura delle anomalie  tempo stimato in totale = 45 minuti credo  
-
-#Punto 3 Analisi esplorativa dei Dati
-# Creazione di nuove colonne e analisi di base:  Dipende dalla complessità delle nuove colonne da creare e delle relazioni da esplorare. Potrebbe richiedere 20-40 minuti.
-# Calcolo delle correlazioni: 10-20 minuti per esaminare le correlazioni tra le variabili principali.
-
-#Punto 4. Preparazione dei Dati per la Modellazione
-# Conversione della colonna target: Poche righe di codice, meno di 5 minuti.
-# Normalizzazione delle colonne numeriche: Dipende dalla dimensione del dataset, ma circa 10-20 minuti.
-
-#Punto 5. Analisi Statistica e Predittiva
-# Implementazione e addestramento del modello di regressione logistica: Dipende dalla complessità del modello e dalla dimensione del dataset, potrebbe richiedere 30-60 minuti.
-# Valutazione del modello: 10-20 minuti per calcolare le metriche di valutazione come l'accuratezza e l'AUC.
+    def ottieni_dati(self):
+        return self.dati
+        
