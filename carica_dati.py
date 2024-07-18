@@ -59,6 +59,7 @@ class CaricatoreDati:
         else:
             print("I dati non sono stati ancora caricati.")
 
+        # restituisce i dati caricati
     def ottieni_dati(self):
         return self.dati
         
