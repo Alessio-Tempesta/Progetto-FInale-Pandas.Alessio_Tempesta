@@ -21,5 +21,6 @@ class PulitoreDati:
     def correggi_anomalie(self):
         self.dati = self.dati[self.dati['Età'] > 0]
         self.dati = self.dati[self.dati['Tariffa_Mensile'] > 0]
-        self.dati = self.dati[self.dati['Durata Abbonamento'] > 0]
+        self.dati = self.dati[self.dati['Durata_Abonnamento'] > 0]
         self.dati = self.dati[self.dati['Dati_Consumati'] >= 0]
+        

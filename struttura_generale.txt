@@ -49,9 +49,9 @@ componenenti principali:
 # Calcolo delle correlazioni: 15-20 minuti per esaminare le correlazioni tra le variabili principali.
 
 #Punto 4 Preparazione dei Dati per la Modellazione
-# Conversione della colonna target: Poche righe di codice, tempo stimato: 20 minuti.
-# Normalizzazione delle colonne numeriche: Dipende dalla dimensione del dataset, ma circa 20-30 minuti.
+# Conversione della colonna : Poche righe di codice, tempo stimato: 20 minuti.
+# Normalizzazione delle colonne numeriche: circa 20-30 minuti.
 
-#Punto 5  Analisi Statistica e Predittiva
+# Punto 5  Analisi Statistica e Predittiva
 # Implementazione e addestramento del modello di regressione logistica: Dipende dalla complessità del modello e dalla dimensione del dataset, potrebbe richiedere 30-60 minuti.
-# Valutazione del modello: 10-20 minuti per calcolare le metriche di valutazione come l'accuratezza e l'AUC.
+# Valutazione del modello: 20-30 minuti per calcolare le metriche di valutazione come l'accuratezza e l'AUC.

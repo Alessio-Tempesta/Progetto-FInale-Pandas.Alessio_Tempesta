@@ -31,38 +31,41 @@
 # Valutare la performance del modello attraverso metriche come l'accuratezza e l'AUC (Area Under Curve).
 
 
-# Punto 1 per il caricamento iniizale dei dati
-# Esplorazione iniziale per capire la struttura dei dati e per identificare i problemi iniziali come i valori o delle anomalie Tempo stimato : 20-25 min
+# File principale main
+# tutti gli import dei vari moduli
 
+
+from carica_dati import CaricatoreDati
+from pulitore_dati import PulitoreDati
+from analisi_esplorativa import AnalisiEsplorativa
+from preparazioneDati import PreparazioneDati
 
 import pandas as pd
+import numpy as np
 
-# classe caricamento dati
-class CaricatoreDati:
-    def __init__(self, percorso_file ='file.csv'):
-        self.percorso_file = percorso_file
-        self.dati = None
-        
-    def carica_dati(self):
-        # carichaimo i dati dal file csv
-        try:
-            self.dati = pd.read_csv(self.percorso_file)
-            print(f"Dati sono stati caricati con successo da {self.percorso_file}")
-            return self.dati
-        except FileNotFoundError:
-            print(f"Errore il file {self.percorso_file} non è stato trovato")
-        
-    #esplora i dati stampando info di base 
-    def esplora_dati(self):
-        if self.dati is not None:
-            print("\nInformazioni sui dati:", self.dati.info())
-            print("\n Statistiche descirttive: ")
-            print(self.dati.describe())
-            print("\nConteggio dei valori nella colonna 'Churn':")
-            print(self.dati['Churn'].value_counts())
-        else:
-            print("I dati non sono stati ancora caricati.")
+# Funzione Main pricipale
+def main():
+    
+    # per il caricamneto dei dati
+    caricatore = CaricatoreDati('file.csv')
+    dati = caricatore.carica_dati()
+    caricatore.esplora_dati()
+    
+    # pulizia dei dati
+    pulitore = PulitoreDati(dati)
+    dati_puliti = pulitore.pulisci_dati()
+    
+    
+    # Analisi esplorativa dei dati
+    analisi = AnalisiEsplorativa(dati_puliti)
+    dati_con_colonne_utili = analisi.crea_colonne_utili()
+    analisi.esplora_relazioni()
+    correlazioni = analisi.calcola_correlazioni()
 
-        # restituisce i dati caricati
-    def ottieni_dati(self):
-        return self.dati
+    
+    # Preparazione dei dati per la modellazione
+    preparatore = PreparazioneDati(dati_puliti)
+    dati_con_churn_numerico = preparatore.converti_churn()
+    dati_normalizzati = preparatore.normalizza_colonne()
+
+main()
