@@ -3,7 +3,7 @@
 # Valutazione del modello: 20-30 minuti per calcolare le metriche di valutazione come l'accuratezza e l'AUC.
 
 
-
+# Creo classe modello
 class ModelloPredittivo:
     def __init__(self, dati):
         self.dati = dati

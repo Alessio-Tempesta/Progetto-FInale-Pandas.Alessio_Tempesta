@@ -11,12 +11,16 @@ class AnalisiEsplorativa:
         
     # funzione che ci permette di creare nuove colonne utili per l'analisi
     def crea_colonne_utili(self):
-        self.dati['Costo_per_GB'] = self.dati['Tariffa_Mensile'] / self.dati['Dati_Consumati']
+        try:
+            self.dati['Costo_per_GB'] = self.dati['Tariffa_Mensile'] / self.dati['Dati_Consumati']
+            print("Colonna 'Costo_per_GB' creata con successo.")
+        except:
+            print("Errore nella creazione delle colonne")
         return self.dati
     
     # esplora le relazioni tra le variabili e churn
     def esplora_relazioni(self):
-        print(self.dati.groupby('Churn')[['Età', 'Durata_Abonnamento', 'Tariffa_Mensile', 'Costo_per_GB']].mean())
+            print(self.dati.groupby('Churn')[['Età', 'Durata_Abonnamento', 'Tariffa_Mensile', 'Costo_per_GB']].mean())
         
     # calcolo delle correlazioni tra le varibali
 
